@@ -32,6 +32,7 @@ var select_p=0;
 var res_query=[];
 var str2 = [];
 var r_temp = '';
+var star = 0;
 
 
 function openModal(r){
@@ -89,7 +90,13 @@ function fnc_inputsDinamicos(){
 	//alert(select_p);
 
 	if (select_p==1) {
-		$('#id_input_dinamico').html('<label>Ingrese el valor de W: </label><input type="number" class="form-control" id="id_w"/> <p> Seleccione el valor de las coordenadas a modificar.</p>');
+		if (star==0){
+			$('#id_input_dinamico').html('<label>Para el primer caso W es: </label><input type="number" value="'+n+'" class="form-control" id="id_w"/> <p> Seleccione el valor de las coordenadas a modificar.</p>');
+			star++;
+		}else{
+			$('#id_input_dinamico').html('<label>Ingrese el valor de W: </label><input type="number" class="form-control" id="id_w"/> <p> Seleccione el valor de las coordenadas a modificar.</p>');
+		}
+		
 	}
 	if (select_p==2) {
 		$('#id_input_dinamico').html('<p> Seleccione el rango a sumar.</p>');
